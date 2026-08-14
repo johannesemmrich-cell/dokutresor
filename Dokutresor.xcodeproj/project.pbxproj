@@ -1,0 +1,478 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CE8EA80BB7784C679C81418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428497737D453A779002810B /* Assets.xcassets */; };
+		264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */; };
+		67681E773E383F9F3F69F352 /* DokutresorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */; };
+		96EE5354D58067822F582498 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAE02CFA98DB9F02CE9916F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07EE7B64929BDB84225DB548 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 708AAE62281CDC5F7C8F8E61;
+			remoteInfo = Dokutresor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		428497737D453A779002810B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A26342DFDD7429FC460E07C /* Dokutresor.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Dokutresor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7407A9B23EA105EC867CC748 /* Dokutresor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dokutresor.entitlements; sourceTree = "<group>"; };
+		9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSmokeTests.swift; sourceTree = "<group>"; };
+		A3C33FD40993D3E8F2631E5F /* DokutresorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DokutresorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokutresorApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0EBCA068268382A91FBBF3D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				428497737D453A779002810B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		238CD63DFA4F1551E0D83C6D /* DokutresorTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */,
+			);
+			path = DokutresorTests;
+			sourceTree = "<group>";
+		};
+		3043D825A78BCDE58BEAF775 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A26342DFDD7429FC460E07C /* Dokutresor.app */,
+				A3C33FD40993D3E8F2631E5F /* DokutresorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37CA381D4221E2C1D1C9E11E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		656709EAE74954C8848CB8C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		816C83EEE09EDED1FFD02511 = {
+			isa = PBXGroup;
+			children = (
+				BE18FF02C0EE019DF305325D /* Dokutresor */,
+				238CD63DFA4F1551E0D83C6D /* DokutresorTests */,
+				3043D825A78BCDE58BEAF775 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE18FF02C0EE019DF305325D /* Dokutresor */ = {
+			isa = PBXGroup;
+			children = (
+				7407A9B23EA105EC867CC748 /* Dokutresor.entitlements */,
+				37CA381D4221E2C1D1C9E11E /* App */,
+				0EBCA068268382A91FBBF3D9 /* Resources */,
+				656709EAE74954C8848CB8C8 /* Views */,
+			);
+			path = Dokutresor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		51266C380655C0C4C06E519B /* DokutresorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 795E54D0D38A5CFE02C81706 /* Build configuration list for PBXNativeTarget "DokutresorTests" */;
+			buildPhases = (
+				A0B507DD5C55A2A6732BE3E9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2DDB7EB3BA7AEBE2B8C0F12 /* PBXTargetDependency */,
+			);
+			name = DokutresorTests;
+			packageProductDependencies = (
+			);
+			productName = DokutresorTests;
+			productReference = A3C33FD40993D3E8F2631E5F /* DokutresorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		708AAE62281CDC5F7C8F8E61 /* Dokutresor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB4BD2D9D2446EF0FCBCCA1A /* Build configuration list for PBXNativeTarget "Dokutresor" */;
+			buildPhases = (
+				6C73AB862D67314C801127DC /* Sources */,
+				4142968C5ADA354A6CF634F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dokutresor;
+			packageProductDependencies = (
+			);
+			productName = Dokutresor;
+			productReference = 5A26342DFDD7429FC460E07C /* Dokutresor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07EE7B64929BDB84225DB548 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					51266C380655C0C4C06E519B = {
+						DevelopmentTeam = XK87E2B3VR;
+						ProvisioningStyle = Automatic;
+					};
+					708AAE62281CDC5F7C8F8E61 = {
+						DevelopmentTeam = XK87E2B3VR;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2702D53920B6857DBD807B09 /* Build configuration list for PBXProject "Dokutresor" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 816C83EEE09EDED1FFD02511;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3043D825A78BCDE58BEAF775 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				708AAE62281CDC5F7C8F8E61 /* Dokutresor */,
+				51266C380655C0C4C06E519B /* DokutresorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4142968C5ADA354A6CF634F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CE8EA80BB7784C679C81418 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C73AB862D67314C801127DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EE5354D58067822F582498 /* ContentView.swift in Sources */,
+				67681E773E383F9F3F69F352 /* DokutresorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0B507DD5C55A2A6732BE3E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2DDB7EB3BA7AEBE2B8C0F12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 708AAE62281CDC5F7C8F8E61 /* Dokutresor */;
+			targetProxy = AAE02CFA98DB9F02CE9916F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2D3B7F246B3E5BFC2B16FB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dokutresor/Dokutresor.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XK87E2B3VR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dokutresor benötigt Kamerazugriff, um Dokumente zu scannen.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Dokutresor nutzt Face ID, um deine Dokumente vor unbefugtem Zugriff zu schützen.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Dokutresor benötigt Zugriff auf deine Fotos, um Dokumente zu importieren.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emmrich.dokutresor;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A9EF1E73A45B1EC496FCF9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dokutresor/Dokutresor.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XK87E2B3VR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Dokutresor benötigt Kamerazugriff, um Dokumente zu scannen.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Dokutresor nutzt Face ID, um deine Dokumente vor unbefugtem Zugriff zu schützen.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Dokutresor benötigt Zugriff auf deine Fotos, um Dokumente zu importieren.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emmrich.dokutresor;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6A3B0E2DB76EA42E0C7890B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		913A375BDB599468BF4DAFF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XK87E2B3VR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.emmrich.DokutresorTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dokutresor.app/Dokutresor";
+			};
+			name = Release;
+		};
+		C131675BF58231ACA4EF1F3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XK87E2B3VR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.emmrich.DokutresorTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dokutresor.app/Dokutresor";
+			};
+			name = Debug;
+		};
+		E8A0B2FB06B6B3958025AAD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2702D53920B6857DBD807B09 /* Build configuration list for PBXProject "Dokutresor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A3B0E2DB76EA42E0C7890B8 /* Debug */,
+				E8A0B2FB06B6B3958025AAD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		795E54D0D38A5CFE02C81706 /* Build configuration list for PBXNativeTarget "DokutresorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C131675BF58231ACA4EF1F3B /* Debug */,
+				913A375BDB599468BF4DAFF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB4BD2D9D2446EF0FCBCCA1A /* Build configuration list for PBXNativeTarget "Dokutresor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D3B7F246B3E5BFC2B16FB17 /* Debug */,
+				3A9EF1E73A45B1EC496FCF9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07EE7B64929BDB84225DB548 /* Project object */;
+}
