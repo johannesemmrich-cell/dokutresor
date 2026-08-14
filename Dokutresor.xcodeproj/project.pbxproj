@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		0CE8EA80BB7784C679C81418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428497737D453A779002810B /* Assets.xcassets */; };
 		264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */; };
+		2B4767ACA7D2ABA436BC73AB /* CloudKitConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D25EC051EE847A106F8CEF /* CloudKitConfigurationTests.swift */; };
 		31B1EBDBB158FED0C47E1D47 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813B040B1D36D76CC6559C3 /* Document.swift */; };
+		558E03A88DAFE4181CE8A0BB /* ModelContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D52CD856360662144C8AC /* ModelContainerFactory.swift */; };
 		63B8879134B1F9442820A18C /* DocumentModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */; };
 		67681E773E383F9F3F69F352 /* DokutresorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */; };
 		96EE5354D58067822F582498 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */; };
@@ -32,9 +34,11 @@
 		5A26342DFDD7429FC460E07C /* Dokutresor.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Dokutresor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7407A9B23EA105EC867CC748 /* Dokutresor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dokutresor.entitlements; sourceTree = "<group>"; };
 		7813B040B1D36D76CC6559C3 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		82D25EC051EE847A106F8CEF /* CloudKitConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitConfigurationTests.swift; sourceTree = "<group>"; };
 		9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSmokeTests.swift; sourceTree = "<group>"; };
 		A3C33FD40993D3E8F2631E5F /* DokutresorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DokutresorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3547FAB5839B2190260043 /* DocumentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCategory.swift; sourceTree = "<group>"; };
+		EB1D52CD856360662144C8AC /* ModelContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerFactory.swift; sourceTree = "<group>"; };
 		F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokutresorApp.swift; sourceTree = "<group>"; };
 		F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */,
+				82D25EC051EE847A106F8CEF /* CloudKitConfigurationTests.swift */,
 				F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */,
 			);
 			path = DokutresorTests;
@@ -72,6 +77,14 @@
 				F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		41C007E60631D152CF5EA784 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EB1D52CD856360662144C8AC /* ModelContainerFactory.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		656709EAE74954C8848CB8C8 /* Views */ = {
@@ -98,6 +111,7 @@
 				37CA381D4221E2C1D1C9E11E /* App */,
 				FDF10F2CD3C3E9AE7F496034 /* Models */,
 				0EBCA068268382A91FBBF3D9 /* Resources */,
+				41C007E60631D152CF5EA784 /* Services */,
 				656709EAE74954C8848CB8C8 /* Views */,
 			);
 			path = Dokutresor;
@@ -210,6 +224,7 @@
 				31B1EBDBB158FED0C47E1D47 /* Document.swift in Sources */,
 				BA7FA2AC159A095CFE6A1C73 /* DocumentCategory.swift in Sources */,
 				67681E773E383F9F3F69F352 /* DokutresorApp.swift in Sources */,
+				558E03A88DAFE4181CE8A0BB /* ModelContainerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */,
+				2B4767ACA7D2ABA436BC73AB /* CloudKitConfigurationTests.swift in Sources */,
 				63B8879134B1F9442820A18C /* DocumentModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

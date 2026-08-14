@@ -1,21 +1,23 @@
 import Foundation
 import SwiftData
 
+// CloudKit verlangt, dass jedes Attribut optional ist oder einen Default-Wert hat —
+// deshalb Default-Werte direkt an den Property-Deklarationen (nicht nur im Initializer).
 @Model
 final class Document {
     static let defaultReminderOffsetsInDays = [30, 7]
 
-    var id: UUID
-    var title: String
-    var issuer: String
+    var id: UUID = UUID()
+    var title: String = ""
+    var issuer: String = ""
     var documentDate: Date?
-    var category: DocumentCategory
-    var tags: [String]
-    var ocrText: String
+    var category: DocumentCategory = DocumentCategory.other
+    var tags: [String] = []
+    var ocrText: String = ""
     var expiryDate: Date?
-    var reminderOffsetsInDays: [Int]
-    var createdAt: Date
-    @Attribute(.externalStorage) var pageImages: [Data]
+    var reminderOffsetsInDays: [Int] = Document.defaultReminderOffsetsInDays
+    var createdAt: Date = Date.now
+    @Attribute(.externalStorage) var pageImages: [Data] = []
 
     init(
         title: String,

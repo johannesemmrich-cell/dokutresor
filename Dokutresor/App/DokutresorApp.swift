@@ -4,9 +4,11 @@ import SwiftData
 @main
 struct DokutresorApp: App {
     let modelContainer: ModelContainer = {
-        let schema = Schema([Document.self])
-        let configuration = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
-        return try! ModelContainer(for: schema, configurations: [configuration])
+        do {
+            return try ModelContainerFactory.makeContainer()
+        } catch {
+            fatalError("Konnte ModelContainer nicht erstellen: \(error)")
+        }
     }()
 
     var body: some Scene {
