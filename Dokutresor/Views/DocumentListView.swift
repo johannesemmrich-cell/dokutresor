@@ -6,8 +6,10 @@ struct DocumentListView: View {
     @Query(sort: \Document.createdAt, order: .reverse) private var documents: [Document]
     @State private var viewModel = DocumentListViewModel()
     @State private var scanViewModel = ScanViewModel()
+    @State private var onboardingViewModel = OnboardingViewModel()
     @State private var isShowingScanner = false
     @State private var selectedDocument: Document?
+    @State private var scanErrorMessage: String?
 
     private var filteredDocuments: [Document] {
         viewModel.filteredDocuments(from: documents)
@@ -50,21 +52,38 @@ struct DocumentListView: View {
                 DocumentScannerView(
                     onComplete: { pages in
                         scanViewModel.addPages(pages)
-                        let document = scanViewModel.makeDocument(title: "Neues Dokument")
-                        modelContext.insert(document)
-                        scanViewModel.reset()
                         isShowingScanner = false
-                        let target = document.reminderTarget
-                        Task { await NotificationService().scheduleReminders(for: target) }
+                        Task {
+                            let document = await scanViewModel.makeDocumentWithOCR()
+                            modelContext.insert(document)
+                            if let ocrErrorMessage = scanViewModel.errorMessage {
+                                scanErrorMessage = ocrErrorMessage
+                            }
+                            scanViewModel.reset()
+                            await NotificationService().scheduleReminders(for: document.reminderTarget)
+                        }
                     },
                     onCancel: {
                         isShowingScanner = false
                     },
                     onError: { _ in
                         isShowingScanner = false
+                        scanErrorMessage = "Dokument konnte nicht gescannt werden. Bitte überprüfe den Kamera-Zugriff in den Einstellungen."
                     }
                 )
                 .ignoresSafeArea()
+            }
+            .alert(
+                "Hinweis",
+                isPresented: Binding(
+                    get: { scanErrorMessage != nil },
+                    set: { isPresented in if !isPresented { scanErrorMessage = nil } }
+                ),
+                presenting: scanErrorMessage
+            ) { _ in
+                Button("OK") { scanErrorMessage = nil }
+            } message: { message in
+                Text(message)
             }
         } detail: {
             if let selectedDocument {
@@ -75,6 +94,14 @@ struct DocumentListView: View {
         }
         .task {
             _ = try? await NotificationService().requestAuthorization()
+        }
+        .fullScreenCover(isPresented: .init(
+            get: { !onboardingViewModel.hasCompletedOnboarding },
+            set: { _ in }
+        )) {
+            OnboardingView {
+                onboardingViewModel.completeOnboarding()
+            }
         }
     }
 }
