@@ -1,5 +1,7 @@
 import SwiftUI
 import SwiftData
+import PhotosUI
+import UniformTypeIdentifiers
 
 struct DocumentListView: View {
     @Environment(\.modelContext) private var modelContext
@@ -8,8 +10,10 @@ struct DocumentListView: View {
     @State private var scanViewModel = ScanViewModel()
     @State private var onboardingViewModel = OnboardingViewModel()
     @State private var isShowingScanner = false
+    @State private var isShowingFileImporter = false
     @State private var selectedDocument: Document?
     @State private var scanErrorMessage: String?
+    @State private var photoPickerItems: [PhotosPickerItem] = []
 
     private var filteredDocuments: [Document] {
         viewModel.filteredDocuments(from: documents)
@@ -31,10 +35,22 @@ struct DocumentListView: View {
             .searchable(text: $viewModel.searchText, prompt: "Suchen")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        isShowingScanner = true
+                    Menu {
+                        Button {
+                            isShowingScanner = true
+                        } label: {
+                            Label("Scannen", systemImage: "doc.viewfinder")
+                        }
+                        PhotosPicker(selection: $photoPickerItems, maxSelectionCount: 1, matching: .images) {
+                            Label("Aus Fotos", systemImage: "photo")
+                        }
+                        Button {
+                            isShowingFileImporter = true
+                        } label: {
+                            Label("Aus Dateien", systemImage: "folder")
+                        }
                     } label: {
-                        Label("Scannen", systemImage: "doc.viewfinder")
+                        Label("Hinzufügen", systemImage: "plus")
                     }
                 }
                 ToolbarItem(placement: .topBarLeading) {
@@ -51,17 +67,8 @@ struct DocumentListView: View {
             .sheet(isPresented: $isShowingScanner) {
                 DocumentScannerView(
                     onComplete: { pages in
-                        scanViewModel.addPages(pages)
                         isShowingScanner = false
-                        Task {
-                            let document = await scanViewModel.makeDocumentWithOCR()
-                            modelContext.insert(document)
-                            if let ocrErrorMessage = scanViewModel.errorMessage {
-                                scanErrorMessage = ocrErrorMessage
-                            }
-                            scanViewModel.reset()
-                            await NotificationService().scheduleReminders(for: document.reminderTarget)
-                        }
+                        processImportedPages(pages)
                     },
                     onCancel: {
                         isShowingScanner = false
@@ -72,6 +79,36 @@ struct DocumentListView: View {
                     }
                 )
                 .ignoresSafeArea()
+            }
+            .onChange(of: photoPickerItems) { _, newItems in
+                guard !newItems.isEmpty else { return }
+                Task {
+                    var pages: [Data] = []
+                    for item in newItems {
+                        if let data = try? await item.loadTransferable(type: Data.self) {
+                            pages.append(data)
+                        }
+                    }
+                    photoPickerItems = []
+                    if pages.isEmpty {
+                        scanErrorMessage = "Das ausgewählte Foto konnte nicht geladen werden."
+                    } else {
+                        processImportedPages(pages)
+                    }
+                }
+            }
+            .fileImporter(
+                isPresented: $isShowingFileImporter,
+                allowedContentTypes: [.pdf, .image],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    guard let url = urls.first else { return }
+                    importFile(at: url)
+                case .failure:
+                    scanErrorMessage = "Die Datei konnte nicht importiert werden."
+                }
             }
             .alert(
                 "Hinweis",
@@ -103,6 +140,35 @@ struct DocumentListView: View {
                 onboardingViewModel.completeOnboarding()
             }
         }
+    }
+
+    private func processImportedPages(_ pages: [Data]) {
+        scanViewModel.addPages(pages)
+        Task {
+            let document = await scanViewModel.makeDocumentWithOCR()
+            modelContext.insert(document)
+            if let ocrErrorMessage = scanViewModel.errorMessage {
+                scanErrorMessage = ocrErrorMessage
+            }
+            scanViewModel.reset()
+            await NotificationService().scheduleReminders(for: document.reminderTarget)
+        }
+    }
+
+    private func importFile(at url: URL) {
+        let didStartAccessing = url.startAccessingSecurityScopedResource()
+        defer {
+            if didStartAccessing { url.stopAccessingSecurityScopedResource() }
+        }
+        guard let data = try? Data(contentsOf: url) else {
+            scanErrorMessage = "Die Datei konnte nicht gelesen werden."
+            return
+        }
+        guard let pages = try? ImportConverter.pages(fromFileData: data) else {
+            scanErrorMessage = "Dieses Dateiformat wird nicht unterstützt."
+            return
+        }
+        processImportedPages(pages)
     }
 }
 

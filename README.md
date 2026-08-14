@@ -11,7 +11,10 @@ Sekunden wiederfinden.
 - **Swift 6, SwiftUI**, iOS 17 als Minimum-Deployment-Target
 - **Persistenz:** SwiftData mit CloudKit-Sync (private Datenbank, an die iCloud des Nutzers
   gebunden – kein eigener Server)
-- **Scan:** VisionKit (`VNDocumentCameraViewController`)
+- **Scan:** VisionKit (`VNDocumentCameraViewController`), plus Import aus Fotos (PhotosPicker)
+  und Dateien (`fileImporter`, Bilder + PDF). PDFs werden beim Import seitenweise zu Bildern
+  gerastert (`ImportConverter`) und wie gescannte Seiten behandelt – es gibt bewusst keinen
+  eigenen PDFKit-Live-Viewer, das hätte den MVP-Scope unnötig vergrößert.
 - **OCR:** Vision (`VNRecognizeTextRequest`), vollständig on-device
 - **Auth:** LocalAuthentication (Face ID/Touch ID) mit Passcode-Fallback
 - **Notifications:** UNUserNotificationCenter, rein lokal
@@ -65,6 +68,12 @@ werden:
    in Xcode unter „Signing & Capabilities“ hinzufügen, falls nicht automatisch übernommen.
 4. **Auf echtem Gerät testen:** Face ID, Kamera-Scan und CloudKit-Sync lassen sich nur auf einem
    echten Gerät (nicht im Simulator) vollständig verifizieren.
+5. **CI aktuell rot wegen GitHub-Billing, nicht wegen des Codes:** Alle bisherigen Actions-Läufe
+   scheitern sofort mit "The job was not started because recent account payments have failed or
+   your spending limit needs to be increased." – das ist ein Account-Problem
+   (GitHub → Settings → Billing & plans), keine fehlerhafte Workflow-Konfiguration. Lokal läuft
+   `xcodebuild test` durchgehend grün (siehe Commit-Historie). Nach Behebung sollte der nächste
+   Push automatisch grün laufen; falls nicht, bitte den Workflow-Log prüfen.
 
 ## Backlog
 
