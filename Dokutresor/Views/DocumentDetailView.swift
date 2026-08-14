@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DocumentDetailView: View {
     let document: Document
+    @State private var isShowingEditSheet = false
 
     var body: some View {
         ScrollView {
@@ -31,5 +32,15 @@ struct DocumentDetailView: View {
             .padding()
         }
         .navigationTitle(document.title.isEmpty ? "Dokument" : document.title)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Bearbeiten") {
+                    isShowingEditSheet = true
+                }
+            }
+        }
+        .sheet(isPresented: $isShowingEditSheet) {
+            DocumentEditView(viewModel: DocumentCorrectionViewModel(document: document))
+        }
     }
 }

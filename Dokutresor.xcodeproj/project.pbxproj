@@ -10,11 +10,13 @@
 		0CE8EA80BB7784C679C81418 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428497737D453A779002810B /* Assets.xcassets */; };
 		0FDFC405F3299CF03895AB23 /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411A701D53C73876044C8E71 /* DocumentListView.swift */; };
 		149CACBD51F77C1713E2A284 /* GermanReceiptHeuristicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A552B4365C0A7B80E528DC42 /* GermanReceiptHeuristicsTests.swift */; };
+		18E4C1E728BE854DA11A0298 /* DocumentCorrectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FF608C9BB9073969724E9 /* DocumentCorrectionViewModel.swift */; };
 		264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */; };
 		2B4767ACA7D2ABA436BC73AB /* CloudKitConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D25EC051EE847A106F8CEF /* CloudKitConfigurationTests.swift */; };
 		31B1EBDBB158FED0C47E1D47 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813B040B1D36D76CC6559C3 /* Document.swift */; };
 		4B61E0AB71904D93419699A9 /* DocumentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C89CD7EDA0A0D31A2B61E06 /* DocumentListViewModel.swift */; };
 		558E03A88DAFE4181CE8A0BB /* ModelContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D52CD856360662144C8AC /* ModelContainerFactory.swift */; };
+		55AA9C0BC0D6C183CAE031A5 /* DocumentCorrectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB2380986C25B3475E80973 /* DocumentCorrectionViewModelTests.swift */; };
 		63B8879134B1F9442820A18C /* DocumentModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */; };
 		67681E773E383F9F3F69F352 /* DokutresorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */; };
 		7259179B5D86C1AED7DDA37D /* ScanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087331A581CECEE1E19F4C3 /* ScanViewModelTests.swift */; };
@@ -29,6 +31,7 @@
 		CA919106F9672194DC631F6F /* DocumentScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E173FAF60CEB38E06B13665 /* DocumentScannerView.swift */; };
 		D573A5DD50B9F3DE50D49655 /* ScanConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6254C55BF988F424953049C /* ScanConverter.swift */; };
 		E24162D2A867F745A4D0633D /* ScanConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BBE6256A2A2B23B41CAB9E /* ScanConverterTests.swift */; };
+		FE0F817A7AA01C04F8BCE714 /* DocumentEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972E9AA76F589587C1B39DB /* DocumentEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		3309F44BF1F980538F916FF5 /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		3B6FF608C9BB9073969724E9 /* DocumentCorrectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCorrectionViewModel.swift; sourceTree = "<group>"; };
 		411A701D53C73876044C8E71 /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
 		425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		428497737D453A779002810B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		A3C33FD40993D3E8F2631E5F /* DokutresorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DokutresorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A552B4365C0A7B80E528DC42 /* GermanReceiptHeuristicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanReceiptHeuristicsTests.swift; sourceTree = "<group>"; };
 		B087331A581CECEE1E19F4C3 /* ScanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModelTests.swift; sourceTree = "<group>"; };
+		BAB2380986C25B3475E80973 /* DocumentCorrectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCorrectionViewModelTests.swift; sourceTree = "<group>"; };
 		BC5F4962B9C5779A7CD73248 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
 		CC3547FAB5839B2190260043 /* DocumentCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCategory.swift; sourceTree = "<group>"; };
 		E9BBE6256A2A2B23B41CAB9E /* ScanConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConverterTests.swift; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 		F2A21E056A1DC31ED704EA08 /* DokutresorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokutresorApp.swift; sourceTree = "<group>"; };
 		F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModelTests.swift; sourceTree = "<group>"; };
 		F6254C55BF988F424953049C /* ScanConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanConverter.swift; sourceTree = "<group>"; };
+		F972E9AA76F589587C1B39DB /* DocumentEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -83,6 +89,7 @@
 			children = (
 				9FC74876413E1F74D991DD04 /* AppSmokeTests.swift */,
 				82D25EC051EE847A106F8CEF /* CloudKitConfigurationTests.swift */,
+				BAB2380986C25B3475E80973 /* DocumentCorrectionViewModelTests.swift */,
 				7B47B1DCF5AE80D1DCBDF583 /* DocumentListViewModelTests.swift */,
 				F5A99FCD0F48E89BD4228FA1 /* DocumentModelTests.swift */,
 				A552B4365C0A7B80E528DC42 /* GermanReceiptHeuristicsTests.swift */,
@@ -126,6 +133,7 @@
 			children = (
 				425B1A0FC3D5DC30BEA54C78 /* ContentView.swift */,
 				99FD9A5B05225C6ABCD7E4F0 /* DocumentDetailView.swift */,
+				F972E9AA76F589587C1B39DB /* DocumentEditView.swift */,
 				411A701D53C73876044C8E71 /* DocumentListView.swift */,
 				9E173FAF60CEB38E06B13665 /* DocumentScannerView.swift */,
 			);
@@ -158,6 +166,7 @@
 		C26CF6A7A4AD687B1E8D7AAA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3B6FF608C9BB9073969724E9 /* DocumentCorrectionViewModel.swift */,
 				8C89CD7EDA0A0D31A2B61E06 /* DocumentListViewModel.swift */,
 				3309F44BF1F980538F916FF5 /* ScanViewModel.swift */,
 			);
@@ -270,7 +279,9 @@
 				96EE5354D58067822F582498 /* ContentView.swift in Sources */,
 				31B1EBDBB158FED0C47E1D47 /* Document.swift in Sources */,
 				BA7FA2AC159A095CFE6A1C73 /* DocumentCategory.swift in Sources */,
+				18E4C1E728BE854DA11A0298 /* DocumentCorrectionViewModel.swift in Sources */,
 				7C9782E4A82F60374D94357A /* DocumentDetailView.swift in Sources */,
+				FE0F817A7AA01C04F8BCE714 /* DocumentEditView.swift in Sources */,
 				0FDFC405F3299CF03895AB23 /* DocumentListView.swift in Sources */,
 				4B61E0AB71904D93419699A9 /* DocumentListViewModel.swift in Sources */,
 				CA919106F9672194DC631F6F /* DocumentScannerView.swift in Sources */,
@@ -289,6 +300,7 @@
 			files = (
 				264FD938D7E07E7D24E67FF4 /* AppSmokeTests.swift in Sources */,
 				2B4767ACA7D2ABA436BC73AB /* CloudKitConfigurationTests.swift in Sources */,
+				55AA9C0BC0D6C183CAE031A5 /* DocumentCorrectionViewModelTests.swift in Sources */,
 				C3192C125E297E0AF36D8C3A /* DocumentListViewModelTests.swift in Sources */,
 				63B8879134B1F9442820A18C /* DocumentModelTests.swift in Sources */,
 				149CACBD51F77C1713E2A284 /* GermanReceiptHeuristicsTests.swift in Sources */,
