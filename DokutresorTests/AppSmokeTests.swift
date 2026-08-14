@@ -5,6 +5,6 @@ import Testing
 struct AppSmokeTests {
     @Test func contentViewExists() {
         let view = ContentView()
-        #expect(view.body is Text)
+        #expect(view.body is DocumentListView)
     }
 }

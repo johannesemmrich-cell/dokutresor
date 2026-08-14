@@ -1,0 +1,35 @@
+import SwiftUI
+
+struct DocumentDetailView: View {
+    let document: Document
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                if let firstPage = document.pageImages.first, let uiImage = UIImage(data: firstPage) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                Text(document.title.isEmpty ? "Ohne Titel" : document.title)
+                    .font(.title2.bold())
+                LabeledContent("Kategorie", value: document.category.rawValue)
+                if !document.issuer.isEmpty {
+                    LabeledContent("Aussteller", value: document.issuer)
+                }
+                if let documentDate = document.documentDate {
+                    LabeledContent("Datum", value: documentDate.formatted(date: .abbreviated, time: .omitted))
+                }
+                if let expiryDate = document.expiryDate {
+                    LabeledContent("Läuft ab", value: expiryDate.formatted(date: .abbreviated, time: .omitted))
+                }
+                if !document.tags.isEmpty {
+                    LabeledContent("Tags", value: document.tags.joined(separator: ", "))
+                }
+            }
+            .padding()
+        }
+        .navigationTitle(document.title.isEmpty ? "Dokument" : document.title)
+    }
+}
