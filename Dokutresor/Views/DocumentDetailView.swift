@@ -40,7 +40,10 @@ struct DocumentDetailView: View {
             }
         }
         .sheet(isPresented: $isShowingEditSheet) {
-            DocumentEditView(viewModel: DocumentCorrectionViewModel(document: document))
+            DocumentEditView(viewModel: DocumentCorrectionViewModel(document: document)) { updatedDocument in
+                let target = updatedDocument.reminderTarget
+                Task { await NotificationService().scheduleReminders(for: target) }
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ final class DocumentCorrectionViewModel {
     var expiryDate: Date?
     var tagsText: String
 
-    private let document: Document
+    let document: Document
 
     init(document: Document) {
         self.document = document

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DocumentEditView: View {
     @Bindable var viewModel: DocumentCorrectionViewModel
+    var onSave: (Document) -> Void = { _ in }
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -43,6 +44,7 @@ struct DocumentEditView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Speichern") {
                         viewModel.save()
+                        onSave(viewModel.document)
                         dismiss()
                     }
                     .disabled(!viewModel.hasChanges)

@@ -54,6 +54,8 @@ struct DocumentListView: View {
                         modelContext.insert(document)
                         scanViewModel.reset()
                         isShowingScanner = false
+                        let target = document.reminderTarget
+                        Task { await NotificationService().scheduleReminders(for: target) }
                     },
                     onCancel: {
                         isShowingScanner = false
@@ -70,6 +72,9 @@ struct DocumentListView: View {
             } else {
                 ContentUnavailableView("Kein Dokument ausgewählt", systemImage: "doc.text.magnifyingglass")
             }
+        }
+        .task {
+            _ = try? await NotificationService().requestAuthorization()
         }
     }
 }
