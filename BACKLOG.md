@@ -87,3 +87,11 @@ Milestones.
 - [x] README mit Setup-Anleitung und Architektur-Überblick
 - [x] Finale Durchsicht: keine TODOs/Platzhalter, keine echten Testdaten im Repo
 - [x] Statusbericht an Nutzer mit Link zum Repo und offenen manuellen Xcode-Schritten
+
+## M11 – Dokumente löschen + Mehrseiten-Ansicht
+
+- [x] Swipe-to-Delete in der Liste, Löschen-Button mit Bestätigungsdialog in der Detailansicht
+- [x] Beim Löschen zuerst evtl. geplante Erinnerungen stornieren, dann aus dem ModelContext entfernen
+- [x] Mehrseiten-Ansicht in der Detailansicht (TabView über alle Seiten statt nur der ersten)
+- [x] Unit-Test fürs SwiftData-Löschen; verify-changes-Review (Build+Test+Multi-Agent) durchlaufen,
+      zwei gefundene Regressionen (Bildgröße bei Einzelseite, eager Decode aller Seiten) behoben
