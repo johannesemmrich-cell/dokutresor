@@ -9,11 +9,21 @@ struct DocumentDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                if let firstPage = document.pageImages.first, let uiImage = UIImage(data: firstPage) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                if !document.pageImages.isEmpty {
+                    TabView {
+                        ForEach(Array(document.pageImages.enumerated()), id: \.offset) { _, pageData in
+                            if let uiImage = UIImage(data: pageData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .padding(.horizontal)
+                            }
+                        }
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: document.pageImages.count > 1 ? .automatic : .never))
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    .frame(height: 420)
                 }
                 Text(document.title.isEmpty ? "Ohne Titel" : document.title)
                     .font(.title2.bold())
