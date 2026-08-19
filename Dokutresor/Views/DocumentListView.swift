@@ -11,6 +11,7 @@ struct DocumentListView: View {
     @State private var onboardingViewModel = OnboardingViewModel()
     @State private var isShowingScanner = false
     @State private var isShowingFileImporter = false
+    @State private var isShowingPhotoPicker = false
     @State private var selectedDocument: Document?
     @State private var scanErrorMessage: String?
     @State private var photoPickerItems: [PhotosPickerItem] = []
@@ -41,7 +42,9 @@ struct DocumentListView: View {
                         } label: {
                             Label("Scannen", systemImage: "doc.viewfinder")
                         }
-                        PhotosPicker(selection: $photoPickerItems, maxSelectionCount: 1, matching: .images) {
+                        Button {
+                            isShowingPhotoPicker = true
+                        } label: {
                             Label("Aus Fotos", systemImage: "photo")
                         }
                         Button {
@@ -80,6 +83,7 @@ struct DocumentListView: View {
                 )
                 .ignoresSafeArea()
             }
+            .photosPicker(isPresented: $isShowingPhotoPicker, selection: $photoPickerItems, maxSelectionCount: 1, matching: .images)
             .onChange(of: photoPickerItems) { _, newItems in
                 guard !newItems.isEmpty else { return }
                 Task {
