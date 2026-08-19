@@ -41,4 +41,21 @@ struct DocumentModelTests {
         #expect(fetched.first?.issuer == "MediaMarkt")
         #expect(fetched.first?.tags == ["Küche", "Garantie"])
     }
+
+    @Test func deletingDocumentRemovesItFromContext() throws {
+        let schema = Schema([Document.self])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true, cloudKitDatabase: .none)
+        let container = try ModelContainer(for: schema, configurations: [configuration])
+        let context = ModelContext(container)
+
+        let document = Document(title: "Zu löschendes Dokument")
+        context.insert(document)
+        try context.save()
+
+        context.delete(document)
+        try context.save()
+
+        let fetched = try context.fetch(FetchDescriptor<Document>())
+        #expect(fetched.isEmpty)
+    }
 }

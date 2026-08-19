@@ -29,6 +29,13 @@ struct DocumentListView: View {
                     List(filteredDocuments, selection: $selectedDocument) { document in
                         DocumentRowView(document: document)
                             .tag(document)
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    deleteDocument(document)
+                                } label: {
+                                    Label("Löschen", systemImage: "trash")
+                                }
+                            }
                     }
                 }
             }
@@ -128,7 +135,9 @@ struct DocumentListView: View {
             }
         } detail: {
             if let selectedDocument {
-                DocumentDetailView(document: selectedDocument)
+                DocumentDetailView(document: selectedDocument) {
+                    deleteDocument(selectedDocument)
+                }
             } else {
                 ContentUnavailableView("Kein Dokument ausgewählt", systemImage: "doc.text.magnifyingglass")
             }
@@ -157,6 +166,15 @@ struct DocumentListView: View {
             scanViewModel.reset()
             await NotificationService().scheduleReminders(for: document.reminderTarget)
         }
+    }
+
+    private func deleteDocument(_ document: Document) {
+        if selectedDocument?.id == document.id {
+            selectedDocument = nil
+        }
+        let target = document.reminderTarget
+        modelContext.delete(document)
+        Task { await NotificationService().cancelReminders(for: target) }
     }
 
     private func importFile(at url: URL) {

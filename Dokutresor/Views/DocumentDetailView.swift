@@ -2,7 +2,9 @@ import SwiftUI
 
 struct DocumentDetailView: View {
     let document: Document
+    var onDelete: () -> Void = {}
     @State private var isShowingEditSheet = false
+    @State private var isShowingDeleteConfirmation = false
 
     var body: some View {
         ScrollView {
@@ -38,12 +40,29 @@ struct DocumentDetailView: View {
                     isShowingEditSheet = true
                 }
             }
+            ToolbarItem(placement: .destructiveAction) {
+                Button(role: .destructive) {
+                    isShowingDeleteConfirmation = true
+                } label: {
+                    Label("Löschen", systemImage: "trash")
+                }
+            }
         }
         .sheet(isPresented: $isShowingEditSheet) {
             DocumentEditView(viewModel: DocumentCorrectionViewModel(document: document)) { updatedDocument in
                 let target = updatedDocument.reminderTarget
                 Task { await NotificationService().scheduleReminders(for: target) }
             }
+        }
+        .confirmationDialog(
+            "Dokument löschen?",
+            isPresented: $isShowingDeleteConfirmation,
+            titleVisibility: .visible
+        ) {
+            Button("Löschen", role: .destructive, action: onDelete)
+            Button("Abbrechen", role: .cancel) {}
+        } message: {
+            Text("Das Dokument wird endgültig gelöscht. Das kann nicht rückgängig gemacht werden.")
         }
     }
 }
