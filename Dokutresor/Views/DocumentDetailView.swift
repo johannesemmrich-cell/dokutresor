@@ -9,21 +9,21 @@ struct DocumentDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                if !document.pageImages.isEmpty {
+                if document.pageImages.count > 1 {
                     TabView {
                         ForEach(Array(document.pageImages.enumerated()), id: \.offset) { _, pageData in
-                            if let uiImage = UIImage(data: pageData) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    .padding(.horizontal)
-                            }
+                            PageImageView(pageData: pageData)
+                                .padding(.horizontal)
                         }
                     }
-                    .tabViewStyle(.page(indexDisplayMode: document.pageImages.count > 1 ? .automatic : .never))
+                    .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
                     .frame(height: 420)
+                } else if let onlyPage = document.pageImages.first, let uiImage = UIImage(data: onlyPage) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
                 Text(document.title.isEmpty ? "Ohne Titel" : document.title)
                     .font(.title2.bold())
@@ -73,6 +73,25 @@ struct DocumentDetailView: View {
             Button("Abbrechen", role: .cancel) {}
         } message: {
             Text("Das Dokument wird endgültig gelöscht. Das kann nicht rückgängig gemacht werden.")
+        }
+    }
+}
+
+private struct PageImageView: View {
+    let pageData: Data
+    @State private var image: UIImage?
+
+    var body: some View {
+        Group {
+            if let image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+        .task(id: pageData) {
+            image = UIImage(data: pageData)
         }
     }
 }
