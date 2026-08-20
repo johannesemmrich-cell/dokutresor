@@ -5,6 +5,8 @@ struct DocumentDetailView: View {
     var onDelete: () -> Void = {}
     @State private var isShowingEditSheet = false
     @State private var isShowingDeleteConfirmation = false
+    @State private var exportedPDF: ExportedDocumentFile?
+    @State private var exportErrorMessage: String?
 
     var body: some View {
         ScrollView {
@@ -50,6 +52,22 @@ struct DocumentDetailView: View {
                     isShowingEditSheet = true
                 }
             }
+            ToolbarItem(placement: .primaryAction) {
+                if let exportedPDF {
+                    ShareLink(
+                        item: exportedPDF,
+                        preview: SharePreview(document.title.isEmpty ? "Dokument" : document.title)
+                    ) {
+                        Label("Teilen", systemImage: "square.and.arrow.up")
+                    }
+                } else {
+                    Button {
+                        prepareExport()
+                    } label: {
+                        Label("Teilen", systemImage: "square.and.arrow.up")
+                    }
+                }
+            }
             ToolbarItem(placement: .destructiveAction) {
                 Button(role: .destructive) {
                     isShowingDeleteConfirmation = true
@@ -57,6 +75,21 @@ struct DocumentDetailView: View {
                     Label("Löschen", systemImage: "trash")
                 }
             }
+        }
+        .task(id: document.pageImages) {
+            prepareExport()
+        }
+        .alert(
+            "Hinweis",
+            isPresented: Binding(
+                get: { exportErrorMessage != nil },
+                set: { isPresented in if !isPresented { exportErrorMessage = nil } }
+            ),
+            presenting: exportErrorMessage
+        ) { _ in
+            Button("OK") { exportErrorMessage = nil }
+        } message: { message in
+            Text(message)
         }
         .sheet(isPresented: $isShowingEditSheet) {
             DocumentEditView(viewModel: DocumentCorrectionViewModel(document: document)) { updatedDocument in
@@ -73,6 +106,16 @@ struct DocumentDetailView: View {
             Button("Abbrechen", role: .cancel) {}
         } message: {
             Text("Das Dokument wird endgültig gelöscht. Das kann nicht rückgängig gemacht werden.")
+        }
+    }
+
+    private func prepareExport() {
+        do {
+            let data = try DocumentExportService.pdfData(fromPageImages: document.pageImages)
+            exportedPDF = ExportedDocumentFile(data: data, title: document.title)
+        } catch {
+            exportedPDF = nil
+            exportErrorMessage = "Dieses Dokument kann nicht als PDF geteilt werden."
         }
     }
 }

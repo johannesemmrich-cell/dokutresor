@@ -15,6 +15,7 @@ struct DocumentListView: View {
     @State private var selectedDocument: Document?
     @State private var scanErrorMessage: String?
     @State private var photoPickerItems: [PhotosPickerItem] = []
+    @State private var isShowingSettings = false
 
     private var filteredDocuments: [Document] {
         viewModel.filteredDocuments(from: documents)
@@ -71,6 +72,30 @@ struct DocumentListView: View {
                         }
                     } label: {
                         Label("Filter", systemImage: "line.3.horizontal.decrease.circle")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Menu {
+                        ForEach(DocumentSortOption.allCases) { option in
+                            Button {
+                                viewModel.sortOption = option
+                            } label: {
+                                if viewModel.sortOption == option {
+                                    Label(option.label, systemImage: "checkmark")
+                                } else {
+                                    Text(option.label)
+                                }
+                            }
+                        }
+                    } label: {
+                        Label("Sortieren", systemImage: "arrow.up.arrow.down")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        isShowingSettings = true
+                    } label: {
+                        Label("Einstellungen", systemImage: "gearshape")
                     }
                 }
             }
@@ -132,6 +157,9 @@ struct DocumentListView: View {
                 Button("OK") { scanErrorMessage = nil }
             } message: { message in
                 Text(message)
+            }
+            .sheet(isPresented: $isShowingSettings) {
+                SettingsView()
             }
         } detail: {
             if let selectedDocument {

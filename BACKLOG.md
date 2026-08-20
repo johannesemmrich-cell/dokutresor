@@ -95,3 +95,16 @@ Milestones.
 - [x] Mehrseiten-Ansicht in der Detailansicht (TabView über alle Seiten statt nur der ersten)
 - [x] Unit-Test fürs SwiftData-Löschen; verify-changes-Review (Build+Test+Multi-Agent) durchlaufen,
       zwei gefundene Regressionen (Bildgröße bei Einzelseite, eager Decode aller Seiten) behoben
+
+## M12 – Export/Teilen, Einstellungen, Sortierung
+
+- [x] `DocumentExportService`: Seiten eines Dokuments zu einer mehrseitigen PDF zusammenführen
+      (Gegenstück zu `ImportConverter`), Unit-Tests (Einzel-/Mehrseiten, leere/undekodierbare Daten)
+- [x] Teilen-Button in der Detailansicht (`ShareLink` über `Transferable`-PDF-Wrapper)
+- [x] Sortierungsoptionen in der Dokumentliste (Neueste/Älteste zuerst, Titel A–Z, Ablaufdatum) als
+      Menü im Toolbar, Auswahl persistiert über `UserDefaults`; Unit-Tests für alle Sortierungen
+      inkl. Persistenz
+- [x] `SettingsView` (Über, Support-Kontakt, Emmrich-Apps-Banner), erreichbar über Zahnrad-Symbol
+      im Toolbar der Dokumentliste
+- [x] Emmrich-Apps-Banner analog zu Dresslyst/Restock/Sunwake (Link zu emmrich-business.com)
+- [x] `xcodebuild test` komplett grün (63 Tests)
