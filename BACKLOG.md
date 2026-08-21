@@ -108,3 +108,9 @@ Milestones.
       im Toolbar der Dokumentliste
 - [x] Emmrich-Apps-Banner analog zu Dresslyst/Restock/Sunwake (Link zu emmrich-business.com)
 - [x] `xcodebuild test` komplett grün (63 Tests)
+- [x] SettingsView ausgebaut (analog Dresslyst/Sunwake): Darstellung (Hell/Dunkel/Automatisch via
+      `preferredColorScheme`), Benachrichtigungen-Verwaltung (Link in iOS-Einstellungen), Daten
+      (alle Dokumente löschen inkl. Erinnerungen, zweistufige Bestätigung), Rechtliches
+      (Datenschutzerklärung/Impressum/Nutzungsbedingungen, inhaltlich korrekt für CloudKit-Sync +
+      Face ID statt der rein-lokalen Dresslyst-Texte); Emmrich-Apps-Banner auf den dunklen
+      Messing-Verlauf der Geschwister-Apps angeglichen (vorher `.thinMaterial`)
